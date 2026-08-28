@@ -8,7 +8,11 @@
                 gf2raw base_mult (.a(a), .b(b), .y(y));
             end else begin : rec
                 localparam H = WIDTH/2;
-                logic [H-1:0] a_h=a[WIDTH-1:H], a_l=a[H-1:0], b_h=b[WIDTH-1:H], b_l=b[H-1:0];
+                logic [H-1:0] a_h, a_l, b_h, b_l;
+                assign a_h = a[WIDTH-1:H];
+                assign a_l = a[H-1:0];
+                assign b_h = b[WIDTH-1:H];
+                assign b_l = b[H-1:0];
                 logic [WIDTH-2:0] P0, P1, P2;
 
                 gfraw #(H) p0(.a(a_h),       .b(b_h),       .y(P0));
